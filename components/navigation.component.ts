@@ -14,4 +14,8 @@ export default class Navigation {
     get logoutButton() {
         return $('#logout_sidebar_link')
     }
+
+    async openCart() {
+        await this.cartIcon.click();
+    }
 }

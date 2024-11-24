@@ -10,6 +10,11 @@ class ProductsPage extends BasePage {
     protected getUrl(): string {
         return "https://www.saucedemo.com/inventory.html";
     }
+    async addToCartButton(itemName: string) {
+        const itemContainer = await this.getItemContainerByName(itemName);
+        return await itemContainer.$('button[id^=add-to-cart]');
+    }
+
     async clickAddToCartButton(itemName: string) {
         const itemContainer = await this.getItemContainerByName(itemName);
         await itemContainer.$('button[id^=add-to-cart]').click();
@@ -17,7 +22,7 @@ class ProductsPage extends BasePage {
 
     async clickRemoveButton(itemName: string) {
         const itemContainer = await this.getItemContainerByName(itemName);
-        await itemContainer.$('button[id^=remove-from-cart]').click();
+        await itemContainer.$('button[id^=remove]').click();
     }
 
     async getItemPrice(itemName: string) {
@@ -28,6 +33,11 @@ class ProductsPage extends BasePage {
     async getItemDescription(itemName: string) {
         const itemContainer = await this.getItemContainerByName(itemName);
         return itemContainer.$('div.inventory_item_desc').getText();
+    }
+
+    async getItemName(itemName: string) {
+        const itemContainer = await this.getItemContainerByName(itemName);
+        return itemContainer.$('div.inventory_item_name');
     }
 
     private async getItemContainerByName(itemName: string): Promise<ChainablePromiseElement> {
