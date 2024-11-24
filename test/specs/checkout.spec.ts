@@ -3,6 +3,7 @@ import cartPage from "../../pages/cart.page.ts";
 import productsPage from "../../pages/products.page.ts";
 import checkoutStep1Page from "../../pages/checkout_step_1.page.ts";
 import checkout_step_2Page from "../../pages/checkout_step_2.page.ts";
+import checkout_completePage from "../../pages/checkout_complete.page.ts";
 
 describe('Products tests', async () => {
     beforeEach(async () => {
@@ -21,6 +22,8 @@ describe('Products tests', async () => {
         await checkoutStep1Page.fillCheckoutForm('Ivan', 'Ivanov', '12345');
         await checkoutStep1Page.clickContinueButton();
         await expect(await checkout_step_2Page.finishButton.isDisplayed()).toBe(true);
+        await checkout_step_2Page.clickFinishButton();
+        await expect(await checkout_completePage.completeHeader.getText()).toEqual('Thank you for your order!');
     });
 
 })
