@@ -1,4 +1,8 @@
 import * as path from "path";
+import * as dotenv from 'dotenv';
+
+// Load the .env file
+dotenv.config();
 
 export const DOWNLOADS_DIR = 'test-results/downloads';
 
@@ -35,8 +39,8 @@ export const config: WebdriverIO.Config = {
     ],
 
     suites: {
-        smoke: [],
-        regress: []
+        smoke: ['./test/specs/checkout.spec.ts'],
+        regress: ['./test/specs/cart.spec.ts', './test/specs/item.spec.ts', './test/specs/login.spec.ts', './test/specs/products.spec.ts']
     },
     //
     // ============

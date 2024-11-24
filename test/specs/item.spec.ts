@@ -1,11 +1,12 @@
 import loginPage from '../../pages/login.page';
 import productsPage from "../../pages/products.page.ts";
 import itemPage from "../../pages/item.page.ts";
+import {password, username} from "../../config.ts";
 
 describe('Item tests', async () => {
     beforeEach(async () => {
         await loginPage.open();
-        await loginPage.login('standard_user', 'secret_sauce');
+        await loginPage.login(username, password);
     });
 
     afterEach(async () => {
