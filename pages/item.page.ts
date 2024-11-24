@@ -6,12 +6,36 @@ class ItemPage extends BasePage {
         super();
     }
 
-    get addToCartButton() {
-        return $('button[id^=add-to-cart]')
-    };
-
     protected getUrl(): string {
-        return "https://www.saucedemo.com/inventory-item.html";
+        return "https://www.saucedemo.com/inventory-item.html?id=4";
+    }
+
+    get itemName() {
+        return $('div[data-test=\'inventory-item-name\']')
+    }
+
+    get itemDescription() {
+        return $('div[data-test=\'inventory-item-desc\']')
+    }
+
+    get itemPrice() {
+        return $('div[data-test=\'inventory-item-price\']')
+    }
+
+    get addToCartButton() {
+        return $('#add-to-cart')
+    }
+
+    get removeButton() {
+        return $('#remove')
+    }
+
+    async clickAddToCartButton() {
+        await this.addToCartButton.click();
+    }
+
+    async clickRemoveButton() {
+        await this.removeButton.click();
     }
 }
 

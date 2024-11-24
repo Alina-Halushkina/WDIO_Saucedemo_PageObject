@@ -37,7 +37,12 @@ class ProductsPage extends BasePage {
 
     async getItemName(itemName: string) {
         const itemContainer = await this.getItemContainerByName(itemName);
-        return itemContainer.$('div.inventory_item_name');
+        return await itemContainer.getElement().$('div.inventory_item_name');
+    }
+
+    async clickByName(itemName: string) {
+        const itemContainer = await this.getItemContainerByName(itemName);
+        await itemContainer.$('div.inventory_item_name').click();
     }
 
     private async getItemContainerByName(itemName: string): Promise<ChainablePromiseElement> {
