@@ -2,6 +2,7 @@ import loginPage from '../../pages/login.page';
 import cartPage from "../../pages/cart.page.ts";
 import productsPage from "../../pages/products.page.ts";
 import checkoutStep1Page from "../../pages/checkout_step_1.page.ts";
+import checkout_step_2Page from "../../pages/checkout_step_2.page.ts";
 
 describe('Products tests', async () => {
     beforeEach(async () => {
@@ -19,7 +20,7 @@ describe('Products tests', async () => {
         await cartPage.clickCheckoutButton();
         await checkoutStep1Page.fillCheckoutForm('Ivan', 'Ivanov', '12345');
         await checkoutStep1Page.clickContinueButton();
-        await expect(await browser.getUrl()).toEqual('https://www.saucedemo.com/checkout-step-two.html');
+        await expect(await checkout_step_2Page.finishButton.isDisplayed()).toBe(true);
     });
 
 })
