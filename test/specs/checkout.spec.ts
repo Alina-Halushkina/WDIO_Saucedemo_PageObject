@@ -24,6 +24,14 @@ describe('Products tests', async () => {
         await expect(await checkout_step_2Page.finishButton.isDisplayed()).toBe(true);
         await checkout_step_2Page.clickFinishButton();
         await expect(await checkout_completePage.completeHeader.getText()).toEqual('Thank you for your order!');
+        await expect(await checkout_completePage.backHomeButton.isDisplayed()).toBe(true);
     });
 
+    it('Should not checkout', async () => {
+        await productsPage.clickAddToCartButton('Sauce Labs Backpack');
+        await cartPage.navigation.openCart();
+        await cartPage.clickCheckoutButton();
+        await checkoutStep1Page.clickContinueButton();
+        await expect(await checkout_step_2Page.finishButton.isDisplayed()).toBe(false);
+    });
 })
