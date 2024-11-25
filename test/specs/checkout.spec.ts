@@ -13,7 +13,7 @@ describe('Checkout tests', async () => {
     });
 
     afterEach(async () => {
-        await browser.execute('window.localStorage.clear(); window.sessionStorage.clear();');
+      await loginPage.clearSessionStorage();
     });
 
     it('Checkout', async () => {

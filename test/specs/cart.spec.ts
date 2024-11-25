@@ -10,9 +10,8 @@ describe('Cart tests', async () => {
     });
 
     afterEach(async () => {
-        await browser.execute('window.localStorage.clear(); window.sessionStorage.clear();');
+      await loginPage.clearSessionStorage();
     });
-
 
     it('Check cart', async () => {
         await productsPage.clickAddToCartButton('Sauce Labs Backpack');
@@ -22,7 +21,6 @@ describe('Cart tests', async () => {
         await expect(await cartPage.cartItemPrice[0].getText()).toEqual('$29.99');
         await expect(await cartPage.cartRemoveButton[0].isDisplayed());
     });
-
 
     it('Check cart 2 items', async () => {
         await productsPage.clickAddToCartButton('Sauce Labs Backpack');
@@ -59,7 +57,7 @@ describe('Cart tests', async () => {
         await productsPage.clickAddToCartButton('Sauce Labs Backpack');
         await cartPage.navigation.openCart();
         await cartPage.clickCheckoutButton();
-        await expect(await $('#checkout_info_container').isDisplayed()).toEqual(true);
+        await expect(await cartPage.checkoutInfo.isDisplayed());
     });
 
 })

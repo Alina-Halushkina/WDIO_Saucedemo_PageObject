@@ -1,7 +1,7 @@
 import {BasePage} from "./base.page.ts";
 import Navigation from "../components/navigation.component.ts";
 
-class Checkout_completePage extends BasePage {
+class CheckoutCompletePage extends BasePage {
     constructor(public readonly navigation: Navigation) {
         super();
     }
@@ -22,4 +22,4 @@ class Checkout_completePage extends BasePage {
         return $('.complete-header')
     }
 }
-export default new Checkout_completePage(new Navigation());
+export default new CheckoutCompletePage(new Navigation());

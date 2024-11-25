@@ -5,4 +5,8 @@ export abstract class BasePage {
     async open() {
         await browser.url(this.getUrl());
     }
+
+    async clearSessionStorage() {
+        await browser.execute('window.localStorage.clear(); window.sessionStorage.clear();');
+    };
 }

@@ -10,8 +10,9 @@ describe('Item tests', async () => {
     });
 
     afterEach(async () => {
-        await browser.execute('window.localStorage.clear(); window.sessionStorage.clear();');
+      await loginPage.clearSessionStorage();
     });
+
     it('Add to cart in item page', async() => {
         await productsPage.clickByName('Sauce Labs Backpack');
         console.log(await itemPage.itemName.getText());
@@ -20,6 +21,5 @@ describe('Item tests', async () => {
         await expect(await itemPage.itemPrice.getText()).toEqual('$29.99');
         await itemPage.clickAddToCartButton();
         await expect(await itemPage.removeButton.isDisplayed());
-        }
-    )
+    });
 });

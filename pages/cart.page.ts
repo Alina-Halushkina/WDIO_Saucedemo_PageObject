@@ -33,6 +33,10 @@ class CartPage extends BasePage {
         return $('#checkout')
     }
 
+    get checkoutInfo() {
+      return $('#checkout_info_container');
+    }
+
     async clickRemoveButton(itemName: string) {
         const cartItem = await this.getCartItemByName(itemName);
         await cartItem.$('button[id^=remove]').click();

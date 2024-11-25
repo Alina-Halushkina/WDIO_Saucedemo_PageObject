@@ -9,7 +9,7 @@ describe('Products tests', async () => {
     });
 
     afterEach(async () => {
-        await browser.execute('window.localStorage.clear(); window.sessionStorage.clear();');
+      await productsPage.clearSessionStorage();
     });
 
    it('Check price and description', async () => {

@@ -52,7 +52,7 @@ class ProductsPage extends BasePage {
     }
 
     async getCartItemsCount() {
-        return this.navigation.CartItemsCount.getText();
+        return this.navigation.cartItemsCount.getText();
     }
 }
 

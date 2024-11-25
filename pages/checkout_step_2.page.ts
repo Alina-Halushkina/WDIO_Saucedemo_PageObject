@@ -1,7 +1,7 @@
 import {BasePage} from "./base.page.ts";
 import Navigation from "../components/navigation.component.ts";
 
-class CheckoutStep2Page extends BasePage {
+class CheckoutStepTwoPage extends BasePage {
     constructor(public readonly navigation: Navigation) {
         super();
     }
@@ -27,4 +27,4 @@ class CheckoutStep2Page extends BasePage {
     }
 
 }
-export default new CheckoutStep2Page(new Navigation());
+export default new CheckoutStepTwoPage(new Navigation());

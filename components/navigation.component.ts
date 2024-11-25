@@ -7,7 +7,7 @@ export default class Navigation {
         return $('#react-burger-menu-btn')
     };
 
-    get CartItemsCount() {
+    get cartItemsCount() {
         return $('span.shopping_cart_badge')
     }
 
